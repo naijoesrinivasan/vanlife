@@ -1,10 +1,10 @@
 #VANLIFE
 
-This is a fronend project for van listings and rentals
+This is a frontend project for van listings and rentals. 
 
 Should be done in a few days.
 
-Will keep posted.
+Will add more info later.
 
 
 🚗 🚕 🚙
