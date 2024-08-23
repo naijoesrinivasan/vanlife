@@ -11,7 +11,7 @@ html {
 body {
     font-size: 1.2em;
     font-weight: 500;
-    max-width: 800px;
+    max-width: 600px;
     min-height: 100vh;
     margin: 2px auto;
     background-color: #FFF7ED;
@@ -19,23 +19,25 @@ body {
 }
 
 nav {
-    height: 15vh;
+    height: 10vh;
     /* border: 1px solid red; */
     display: flex;
-    padding: 40px;
+    padding: 30px;
     background-color: #FFF7ED;
     gap: 15px;
 }
 
 nav>img {
-    font-weight: 900;
+    font-weight: 800;
     font-size: 2em;
     margin-right: auto;
+    width: 40%;
+    height: 100%;
 }
 
 .home-section {
     color: #FFFFFF;
-    height: 85vh;
+    height: 90vh;
     display: flex;
     gap: 40px;
     flex-direction: column;
@@ -111,4 +113,102 @@ footer {
     background-color: #252525;
     color: #AAAAAA;
     height: 80px;
+}
+
+.vans-section {
+    padding: 30px;
+    padding-top: 0;
+    /* border: 1px solid red; */
+}
+
+.vans-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+    gap: 4%;
+}
+
+.vans-content {
+    /* border: 1px solid black; */
+}
+
+.van {
+    /* border: 1px solid black; */
+    width: 48%;
+    height: fit-content;
+    margin-bottom: 4%;
+}
+
+.van-image {
+    width: 100%;
+    min-width: 150px;
+    border-radius: 8px;
+}
+
+.van-filter-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    /* border: 1px solid red; */
+    padding: 2%;
+    padding-left: 0;
+}
+
+.van-options-btn {
+    width: 22%;
+    min-height: 35px;
+    border-style: none;
+    background-color: #FFEAD0;
+}
+
+.van-name-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+.simple {
+    background-color: #E17654;
+}
+
+.rugged {
+    background-color: #115E59;
+}
+
+.luxury {
+    background-color: #161616;
+}
+
+.van-type-btn {
+    color: #FFEAD0;
+    width: 100px;
+    height: 30px;
+    border-style: none;
+    border-radius: 8px;
+}
+
+.van-detail-section {
+    /* border: 1px solid red; */
+    padding: 30px;
+    padding-top: 0;
+}
+
+.van-detail {
+    /* border: 5px solid purple; */
+    margin-top: 40px;
+}
+
+.van-detail-content {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rent-van {
+    background-color: #FF8C38;
+    height: 40px;
+    color: #FFFFFF;
+    border-style: none;
+    border-radius: 8px;
 }
