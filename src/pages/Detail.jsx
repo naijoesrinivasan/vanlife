@@ -20,7 +20,7 @@ function Van(props){
 
 export default function Detail(props) {
   const {id} = useParams()
-  const [van, setVan] = useState([])
+  const [van, setVan] = useState(null)
 
   useEffect(() => {
     const path = `/api/vans/${id}`

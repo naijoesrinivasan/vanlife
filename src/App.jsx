@@ -4,8 +4,8 @@ import Home from "./pages/Home"
 import About from "./pages/About"
 import Navbar from "./Components/Navbar"
 import Footer from "./Components/Footer"
-import Vans from "./Components/Vans"
-import Detail from "./Components/Detail"
+import Vans from "./pages/Vans"
+import Detail from "./pages/Detail"
 
 import './mirageServer'
 
