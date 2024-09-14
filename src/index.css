@@ -45,7 +45,7 @@ nav>img {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-image: url('public/images/home-background.png');
+    background-image: url('/images/home-background.png');
     background-size: cover;
     /* border: 3px solid red; */
     margin-bottom: 0;
