@@ -3,7 +3,7 @@ import React from "react"
 export default function About() {
   return (
     <main className="about-section">
-      <img src="public/images/about-background.png" alt="" style={{width:"100%"}}/>
+      <img src="/images/about-background.png" alt="" style={{width:"100%"}}/>
       <section className="about-content">
         <section className="about-brag">
           <h1>Don’t squeeze in a sedan when you could relax in a van.</h1> 
