@@ -18,21 +18,26 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-nav {
-    height: 10vh;
-    /* border: 1px solid red; */
+.navbar-section {
+    /* border: 3px solid black; */
     display: flex;
+    justify-content: space-between;
     padding: 30px;
     background-color: #FFF7ED;
     gap: 15px;
 }
 
-nav>img {
+#vanlife-logo {
+    /* border: 1px solid red; */
     font-weight: 800;
-    font-size: 2em;
     margin-right: auto;
-    width: 40%;
-    height: 100%;
+    width: 150px;
+}
+
+.nav-links {
+    /* border: 1px solid red; */
+    display: flex;
+    gap: 10px;
 }
 
 .home-section {
@@ -211,4 +216,17 @@ footer {
     color: #FFFFFF;
     border-style: none;
     border-radius: 8px;
+}
+
+.host-nav-links {
+    /* border: 1px solid red; */
+    padding: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.host-nav-links>a:hover {
+    /* border: 1px solid red; */
+    text-decoration: underline;
+    font-weight: 600;
 }

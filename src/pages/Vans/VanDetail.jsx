@@ -18,7 +18,7 @@ function Van(props){
   )
 }
 
-export default function Detail(props) {
+export default function VanDetail(props) {
   const {id} = useParams()
   const [van, setVan] = useState(null)
 

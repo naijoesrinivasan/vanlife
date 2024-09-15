@@ -5,10 +5,14 @@ export default function Navbar()  {
   return (
     <header>
       <nav className="navbar-section">
-        <img src="/images/vanlife-logo.png" alt="Vanlife Logo" />
-        <Link className='nav-links' to='/'>Home</Link>
-        <Link className='nav-links' to='/about'>About</Link>
-        <Link className='nav-links' to='/vans'>Vans</Link>
+        <div className="vanlife-logo">
+          <Link to='/'><img src="/images/vanlife-logo.png" alt="Vanlife Logo" id="vanlife-logo"/></Link>
+        </div>
+        <div className="nav-links">
+          <Link to='/host'>Host</Link>
+          <Link to='/about'>About</Link>
+          <Link to='/vans'>Vans</Link>
+        </div>
       </nav>
     </header>
   )
