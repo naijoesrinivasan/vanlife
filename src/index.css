@@ -225,8 +225,7 @@ footer {
     gap: 15px;
 }
 
-.host-nav-links>a:hover {
-    /* border: 1px solid red; */
+a:hover {
+    color: red;
     text-decoration: underline;
-    font-weight: 600;
 }
