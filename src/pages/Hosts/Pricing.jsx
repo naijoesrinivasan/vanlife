@@ -3,10 +3,15 @@ import { useOutletContext } from 'react-router-dom';
 
 export default function Pricing() {
   const hostVan = useOutletContext();
+  const spanStyles = {
+    fontWeight: 300,
+    fontSize: "16px",
+    color: "#AAAAAA"
+  };
 
   return (
-    <main>
-    { hostVan && <p>${hostVan[0].price} <span >/day</span></p> }
-    </main>
+    <section>
+    { hostVan && <p>${hostVan.price} <span style={spanStyles}>/day</span></p> }
+    </section>
   )
 }

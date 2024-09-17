@@ -3,17 +3,22 @@ import { useOutletContext } from 'react-router-dom';
 
 export default function Details() {
   const hostVan = useOutletContext();
-  console.log("Details page: ",hostVan);
+  console.log("Details page: ", hostVan);
+  const spanStyles = {
+    fontWeight: 300,
+    fontSize: "16px",
+    color: "#AAAAAA"
+  };
 
   return (
-    <main>
+    <section className='host-van-detail-outlet'>
       {hostVan && 
       <>
-        <p>Name: {hostVan[0].name}</p>
-        <p>Category: {hostVan[0].type}</p>
-        <p>Description: {hostVan[0].description}</p>
+        <p>Name: <span style={spanStyles}>{hostVan.name}</span></p>
+        <p>Category: <span style={spanStyles}>{hostVan.type}</span></p>
+        <p>Description: <span style={spanStyles}>{hostVan.description}</span></p>
       </>
       }
-    </main>
+    </section>
   )
 }

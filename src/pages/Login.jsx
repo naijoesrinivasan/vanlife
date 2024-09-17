@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Form, useLoaderData, useNavigate, redirect } from 'react-router-dom'
+import React from 'react'
+import { Form, useLoaderData, redirect, useActionData, useNavigation } from 'react-router-dom'
 import { loginUser } from '../api';
 
 export function loader({ request }) {
@@ -8,27 +8,32 @@ export function loader({ request }) {
   return message;
 }
 
-export async function action({ request, params })  {
+export async function action({ request })  {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  const pathname = new URL(request.url).searchParams.get("redirectTo") || '/host';
+  console.log("In action: Redirect: ", pathname)
 
-  const data = await loginUser({ email, password });
-  console.log(data);
-  localStorage.setItem("loggedIn", true);
-
-  const response = redirect('/host');
-  response.body = true;
-  throw response;
+  try {
+      const data = await loginUser({ email, password });
+      console.log("Inside login try: ", data);
+      localStorage.setItem("loggedIn", true);
+      return redirect(pathname);
+  } catch(err) {
+      console.log("Received an error")
+      console.log("Inside login error: ", err)
+      return err
+  }
+ 
 }
 
 export default function Login() {
-  const [loginFormData, setLoginFormData] = useState({ email: "", password: "" });
-  const [status, setStatus] = useState("idle");
-  const [error, setError] = useState(null);
-  const navigate = useNavigate();
+  const error = useActionData();
   const message = useLoaderData();
-  const messageStyle = {
+  const navigation = useNavigation();
+
+  const styles = {
     color: "red",
     fontFamily: "Poppins",
     fontSize: "0.9em",
@@ -36,22 +41,24 @@ export default function Login() {
   };
 
   return (
-    <main className='login-form'>
+    <main className='form-section'>
       <h2>Sign in to your account</h2>
-      <Form method="POST" replace>
+      <Form method="POST" replace className='login-form'>
         <input 
           type="email" 
-          name='email'
+          name="email"
+          id="email"
           placeholder='Email'
         />
         <input 
           type="password" 
-          name='password'
+          name="password"
+          id="password"
           placeholder='Password'
         />
-        { message && <span style={messageStyle}>{message}</span> }
-        {error && <span style={messageStyle}>{error.message}</span>}
-        <button>{status === "submitting" ? "Logging In" : "Log In"}</button>
+        { message && <span style={styles}>{message}</span> }
+        {error && <span style={styles}>{error.message}</span>}
+        <button disabled={navigation.state === "submitting"}>{navigation.state === "submitting" ? "Logging In" : "Log In"}</button>
       </Form>
     </main>
   )

@@ -22,7 +22,7 @@ import Login, { loader as loginLoader, action as loginAction } from "./pages/Log
 
 import Error from "./components/Error"
 
-import './mirageServer'
+// import './mirageServer'
 import { requireAuth } from "./utils"
 
 function App() {
@@ -58,7 +58,7 @@ function App() {
         },
         {
           path: 'host',
-          loader: async() => await requireAuth(),
+          loader: async({request}) => await requireAuth(request),
           element: <HostLayout />,
           children: [
             {

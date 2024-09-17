@@ -21,36 +21,30 @@ export default function Navbar()  {
         <div className="nav-links">
           <NavLink 
             to='/host' 
-            className={({isActive}) => isActive ? "active-class" : ""} 
             style={({isActive}) => isActive ? styles : null}
           >
             Host
           </NavLink>
           <NavLink 
             to='/about' 
-            className={({isActive}) => isActive ? "active-class" : ""} 
             style={({isActive}) => isActive ? styles : null}
           >
             About
           </NavLink>
           <NavLink 
             to='/vans' 
-            className={({isActive}) => isActive ? "active-class" : ""} 
             style={({isActive}) => isActive ? styles : null}
           >
             Vans
           </NavLink>
           <NavLink 
             to='/login' 
-            className={({isActive}) => isActive ? "active-class" : ""} 
             style={({isActive}) => isActive ? styles : null}
           >
             <FaUser />
           </NavLink>
           <NavLink 
             to='/login' 
-            className={({isActive}) => isActive ? "active-class" : ""} 
-            style={({isActive}) => isActive ? styles : null}
             onClick={() => localStorage.removeItem("loggedIn")}
           >
             <RiLogoutCircleRFill />

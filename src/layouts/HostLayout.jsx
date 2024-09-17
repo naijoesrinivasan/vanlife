@@ -3,7 +3,7 @@ import { Outlet, NavLink } from 'react-router-dom'
 
 export default function HostLayout() {
   return (
-    <>
+    <main>
       <nav className='host-nav-links'>
         <NavLink 
           to='.' 
@@ -32,6 +32,6 @@ export default function HostLayout() {
         </NavLink>
       </nav>
       <Outlet />
-    </>
+    </main>
   )
 }

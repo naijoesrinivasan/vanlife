@@ -9,18 +9,21 @@ html {
 }
 
 body {
-    border: 2px solid red;
     max-width: 600px;
     min-height: 100vh;
     background-color: #282C40;
     font-family: 'Poppins', sans-serif;
     color: white;
+    font-weight: 300;
     margin: 0 auto;
 }
 
 #root {
-    height: 100%;
+    min-height: 100vh;
+    /* border: 2px solid red; */
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -28,14 +31,42 @@ a {
     color: white;
 }
 
+a:hover {
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+header {
+    /* border: 2px solid green; */
+    height: fit-content;
+    position: sticky;
+    top: 0;
+}
+
+main {
+    flex-grow: 1;
+    /* border: 2px solid white; */
+}
+
+footer {
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #252525;
+    color: #AAAAAA;
+    position: sticky;
+    bottom: 0;
+    /* border: 1px solid white; */
+    margin-top: auto;
+}
+
 .crestline-logo-section {
     /* border: 1px solid white; */
 }
 
 .navbar-section {
-    /* border: 3px solid white; */
-    position: sticky;
-    top: 0;
     background-color: #252525;
     display: flex;
     justify-content: space-between;
@@ -71,8 +102,7 @@ a {
     background-image: url('/images/home-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
-    border: 3px solid red;
-    margin-bottom: 0;
+    /* border: 3px solid red; */
 }
 
 .home-section h1 {
@@ -93,11 +123,11 @@ a {
 }
 
 .about-section {
-    border: 2px solid white;
+    /* border: 2px solid white; */
 }
 
 .about-content {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     padding: 30px 50px;
     display: flex;
     flex-direction: column;
@@ -106,7 +136,7 @@ a {
 }
 
 .about-brag {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -136,42 +166,29 @@ a {
     box-shadow: 0px 0px 19px 0px rgba(255, 255, 255, 1);
 }
 
-footer {
-    position: sticky;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #252525;
-    color: #AAAAAA;
-    height: 60px;
-}
-
 .vans-section {
     padding: 30px;
-    border: 1px solid green;
+    /* border: 1px solid pink; */
 }
 
 .vans-list {
-    border: 2px solid red;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding-left: 0;
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
 }
 
 .vans-content {
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .van {
+    /* border: 1px solid white; */
     height: fit-content;
 }
 
 .van-image {
-    max-width: 250px;
+    width: 250px;
     border-radius: 8px;
 }
 
@@ -183,11 +200,12 @@ footer {
 
 .van-options-btn {
     width: 150px;
-    min-width: fit-content;
-    min-height: 35px;
+    height: 35px;
     border-style: none;
     background-color: #3C4973;
+    font-family: 'Poppins';
     color: #AAAAAA;
+    border-radius: 6px;
 }
 
 .van-options-btn:hover {
@@ -227,12 +245,12 @@ footer {
 }
 
 .van-detail-section {
-    border: 1px solid white;
+    /* border: 2px solid white; */
     padding: 30px 50px;
 }
 
 .van-detail {
-    border: 5px solid purple;
+    /* border: 5px solid purple; */
     margin-top: 40px;
 }
 
@@ -262,11 +280,6 @@ footer {
     gap: 15px;
 }
 
-a:hover {
-    font-weight: 600;
-    /* text-decoration: underline; */
-}
-
 .active-host-link {
     font-weight: 600;
     text-decoration: underline;
@@ -274,7 +287,7 @@ a:hover {
 
 .host-vans-wrapper {
     /* border: 1px solid red; */
-    padding: 25px;
+    padding: 30px;
 }
 
 .host-vans-cards-wrapper {
@@ -292,11 +305,11 @@ a:hover {
     gap: 10px;
     align-items: center;
     border-radius: 8px;
-    background-color: white;
+    background-color: #3C4973;
 }
 
 .host-van-card>img {
-    max-width: 40%;
+    max-width: 200px;
     /* border: 1px solid blue; */
     border-radius: 8px;
 }
@@ -306,27 +319,28 @@ a:hover {
     flex-direction: column;
 }
 
+.van-detail-layout-wrapper {
+    /* border: 2px solid red; */
+    padding: 30px;
+}
+
 .host-van-detail-card {
-    border: 2px solid blue;
-    padding: 20px;
+    /* border: 2px solid white; */
+    margin-top: 15px;
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
 .host-van-detail-card-top {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     gap: 20px;
 }
 
 .host-van-detail-card-top>img {
-    max-width: 40%;
+    max-width: 250px;
     border-radius: 8px;
-}
-
-.host-van-detail-card-navlinks {
-    border: 2px solid red;
 }
 
 .host-van-detail-card-navlinks {
@@ -334,11 +348,44 @@ a:hover {
     gap: 10px;
 }
 
-.login-form {
+.host-van-detail-outlet {
+    /* border: 2px solid green; */
     display: flex;
     flex-direction: column;
-    padding: 100px;
-    gap: 5px;
+    gap: 15px;
+}
+
+.login-form {
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form>input {
+    min-height: 30px;
+}
+
+.login-form button {
+    height: 30px;
+    background-color: #3C4973;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0px 0px 19px 0px rgba(255, 255, 255, 1);
+}
+
+.login-form #password {
+    margin-bottom: 10px;
+}
+
+.form-section {
+    /* border: 2px solid red; */
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
