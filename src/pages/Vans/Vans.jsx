@@ -1,19 +1,31 @@
-import React, { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import React, { useState, useEffect } from "react";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api";
+
+export async function loader()  {
+  console.log("Vans loader is fetching data");
+  // throw new Error({message: "some error occured in vans loader"})
+  return getVans();
+}
 
 export default function Vans() {
-  const [vans, setVans] = useState([])
+  const vans = useLoaderData();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeFilter = searchParams.get("type");
 
-  useEffect(() => {
-    fetch('/api/vans')
-      .then(res => res.json())
-      .then(data => setVans(data.vans))
-  }, [])
+  function handleFilter(type) {
+    const currSearchParams = new URLSearchParams(searchParams);
 
-  const vanElements = vans.map((van) => {
+    type ? currSearchParams.set("type", type) : currSearchParams.delete("type");
+    setSearchParams(currSearchParams);
+  }
+
+  const filteredVans = typeFilter ? vans.filter((van) => van.type === typeFilter) : vans;
+
+  const vanElements = filteredVans.map((van) => {
     return (
         <div className="van" key={van.id}>
-          <Link to={van.id} aria-label={`View details for ${van.name}, priced at $${van.price} per day`}>
+          <Link to={van.id} state={{search: `?${searchParams.toString()}`, type: typeFilter }} aria-label={`View details for ${van.name}, priced at $${van.price} per day`}>
             <img src={van.imageUrl} className="van-image" alt={`Image of ${van.name}`} />
             <div className="van-name-price">
               <p>{van.name}</p>
@@ -33,10 +45,31 @@ export default function Vans() {
       <div className="vans-content">
         <h1>Explore our van options </h1>
         <div className="van-filter-section">
-          <button className="van-options-btn">Simple</button>
-          <button className="van-options-btn">Luxury</button>
-          <button className="van-options-btn">Rugged</button>
-          <p>Clear filters</p>
+          <button 
+            className={`van-options-btn ${typeFilter === 'simple' ? "simple" : ""}`} 
+            onClick={() => handleFilter("simple")}
+          >
+            Simple
+          </button>
+          <button 
+            className={`van-options-btn ${typeFilter === 'luxury' ? "luxury" : ""}`} 
+            onClick={() => handleFilter("luxury")}
+          >
+            Luxury
+          </button>
+          <button 
+            className={`van-options-btn ${typeFilter === 'rugged' ? "rugged" : ""}`} 
+            onClick={() => handleFilter("rugged")}
+          >
+            Rugged
+          </button>
+          {typeFilter &&
+          <p 
+            style={{textDecoration: "underline", fontSize: "16px", cursor: "pointer"}} 
+            onClick={() => handleFilter(null)}
+          >
+            Clear filters
+          </p>}
         </div>
       </div>
       <div className="vans-list">

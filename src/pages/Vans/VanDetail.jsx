@@ -1,12 +1,17 @@
-import React, {useState, useEffect} from "react";
-import { useParams, Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api";
+
+export async function loader({params})  {
+  return getVans(params.id);
+}
 
 function Van(props){
   const van = props.props
   console.log(van)
   return(
      <div className="van-detail">
-       <img className="van-image" src={van.imageUrl} alt="" />
+       <img className="van-detail-image" src={van.imageUrl} alt="" />
        <div className="van-detail-content">
           <button className={`${van.type} van-type-btn`}>{van.type}</button>
           <h1>{van.name}</h1>
@@ -19,19 +24,17 @@ function Van(props){
 }
 
 export default function VanDetail(props) {
-  const {id} = useParams()
-  const [van, setVan] = useState(null)
+  const van = useLoaderData();
+  const location = useLocation();
+  console.log(location);
 
-  useEffect(() => {
-    const path = `/api/vans/${id}`
-    fetch(path)
-      .then(res => res.json())
-      .then(data => setVan(data.van))
-  }, [id])
+  const search = location.state?.search || "";
+  const type = location.state?.type || "all";
+
 
   return(
     <section className="van-detail-section">
-      <Link to='/vans'><p>&larr; Back to all vans</p></Link>
+      <Link to={`..${search}`} relative="path"><p>&larr; Back to { type } vans</p></Link>
       {van && <Van props={van} />}
     </section>
   )

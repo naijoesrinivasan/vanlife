@@ -1,25 +1,22 @@
 
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
+import { FaUser } from "react-icons/fa";
+import { RiLogoutCircleRFill } from "react-icons/ri";
 
 export default function Navbar()  {
   const styles = {
     fontWeight: "600",
     textDecoration: "underline",
-    color: "red"
   };
 
   return (
     <header>
       <nav className="navbar-section">
-        <div className="vanlife-logo">
-          <NavLink 
-            to='/' 
-            className={({isActive}) => isActive ? "active-class" : ""}  
-            style={({isActive}) => isActive ? styles : null}
-          >
-            <img src="/images/vanlife-logo.png" alt="Vanlife Logo" id="vanlife-logo"/>
-          </NavLink>
+        <div className="crestline-logo-section">
+          <Link to='/' >
+            <img src="/images/logos/Crestline_transparent-.png" alt="Crestline Logo" id="crestline-logo"/>
+          </Link>
         </div>
         <div className="nav-links">
           <NavLink 
@@ -42,6 +39,21 @@ export default function Navbar()  {
             style={({isActive}) => isActive ? styles : null}
           >
             Vans
+          </NavLink>
+          <NavLink 
+            to='/login' 
+            className={({isActive}) => isActive ? "active-class" : ""} 
+            style={({isActive}) => isActive ? styles : null}
+          >
+            <FaUser />
+          </NavLink>
+          <NavLink 
+            to='/login' 
+            className={({isActive}) => isActive ? "active-class" : ""} 
+            style={({isActive}) => isActive ? styles : null}
+            onClick={() => localStorage.removeItem("loggedIn")}
+          >
+            <RiLogoutCircleRFill />
           </NavLink>
         </div>
       </nav>
