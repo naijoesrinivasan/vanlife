@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Form, useLoaderData, redirect, useActionData, useNavigation } from 'react-router-dom'
 import { loginUser } from '../api';
 
@@ -29,6 +29,7 @@ export async function action({ request })  {
 }
 
 export default function Login() {
+  const [showHint, setShowHint] = useState(false);
   const error = useActionData();
   const message = useLoaderData();
   const navigation = useNavigation();
@@ -58,8 +59,17 @@ export default function Login() {
         />
         { message && <span style={styles}>{message}</span> }
         {error && <span style={styles}>{error.message}</span>}
-        <button disabled={navigation.state === "submitting"}>{navigation.state === "submitting" ? "Logging In" : "Log In"}</button>
+        <button className="login-button" disabled={navigation.state === "submitting"}>{navigation.state === "submitting" ? "Logging In" : "Log In"}</button>
       </Form>
+        <button className='hint-button' onClick={() => setShowHint(!showHint)}>Hint</button>
+        { showHint && 
+          (
+            <div style={({...styles, color: "green"})}>
+              <p>username: user@nextmail.com</p>
+              <p>password: 123456</p>
+            </div>
+          )
+        }
     </main>
   )
 }
