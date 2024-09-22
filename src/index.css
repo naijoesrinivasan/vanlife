@@ -300,15 +300,15 @@ footer {
 
 .host-vans-cards-wrapper {
     /* border: 1px solid red; */
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .host-van-card {
-    /* border: 2px solid black; */
+    border: 2px solid black;
     padding: 20px;
-    width: 100%;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -343,6 +343,7 @@ footer {
 .host-van-detail-card-top {
     /* border: 2px solid red; */
     display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -440,11 +441,74 @@ footer {
     justify-content: space-between;
 }
 
-@media screen and (min-width: 940px) {
+.reviews-section-wrapper {
+    /* border: 2px solid red; */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.overall-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lines {
+    /* border: 2px solid white; */
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    border: none;
+    background-color: #8884d8;
+    border-radius: 10px;
+    margin: auto;
+    width: 100%;
+    padding: 2px;
+}
+
+.reviews-wrapper {
+    /* border: 1px solid white; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review {
+    border: 1px solid #8884d8;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.no-stars {
+    width: 100px;
+    /* border: 1px solid white; */
+}
+
+.percentage {
+    width: 50px;
+    /* border: 1px solid white; */
+    display: flex;
+    justify-content: end;
+}
+
+@media screen and (min-width: 700px) {
     .van-detail {
         flex-direction: row;
     }
     .van-detail-image {
         max-width: 450px;
+    }
+    .host-van-detail-card-top {
+        flex-direction: row;
+    }
+    .host-van-detail-card-top>img {
+        max-width: 400px;
     }
 }
