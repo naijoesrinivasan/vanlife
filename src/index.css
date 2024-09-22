@@ -307,7 +307,7 @@ footer {
 }
 
 .host-van-card {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     padding: 20px;
     display: flex;
     gap: 10px;
@@ -399,7 +399,10 @@ footer {
 
 .income-wrapper {
     /* border: 2px solid red; */
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
 }
 
 .income-chart {
@@ -496,6 +499,32 @@ footer {
     /* border: 1px solid white; */
     display: flex;
     justify-content: end;
+}
+
+.dashboard-section-wrapper {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 30px;
+}
+
+.dashboard-income,
+.dashboard-review {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-welcome {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard-listed-vans {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 @media screen and (min-width: 700px) {

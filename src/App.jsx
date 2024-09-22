@@ -11,7 +11,7 @@ import About from "./pages/About"
 import Vans, { loader as vansLoader } from "./pages/Vans/Vans"
 import VanDetail, {loader as vanDetailLoader} from "./pages/Vans/VanDetail"
 import HostVans, {loader as hostVansLoader} from "./pages/Hosts/HostVans"
-import Dashboard from "./pages/Hosts/Dashboard"
+import Dashboard, { loader as dashboardLoader } from "./pages/Hosts/Dashboard"
 import Income from "./pages/Hosts/Income"
 import Reviews from "./pages/Hosts/Reviews"
 import Pricing from "./pages/Hosts/Pricing"
@@ -63,7 +63,8 @@ function App() {
           children: [
             {
               index: true,
-              element: <Dashboard />
+              element: <Dashboard />,
+              loader: dashboardLoader
             },
             {
               path: 'income',

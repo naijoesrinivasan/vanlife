@@ -21,9 +21,12 @@ export default function Income() {
 
   return (
     <div className='income-wrapper'>
-      <h1>Income</h1>
-      <p>Last <span style={styles}>3 months</span></p>
-      <h1>$5,173</h1>
+      <section className="income-title">
+        <h1>Income</h1>
+        <p>Last <span style={styles}>3 months</span></p>
+        <h1>$5,173</h1>
+      </section>
+      <section className="income-chart">
         <ResponsiveContainer height={350} width="100%">
           <BarChart
             data={transactions}
@@ -42,6 +45,7 @@ export default function Income() {
             <Bar dataKey="income" fill="#8884d8" activeBar={<Rectangle fill="pink" stroke="blue" />} />
           </BarChart>
         </ResponsiveContainer>
+      </section>
       <section className="income-transactions">
         <div className='transactions-title'>
           <p>Transactions</p>
