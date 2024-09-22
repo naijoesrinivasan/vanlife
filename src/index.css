@@ -396,6 +396,50 @@ footer {
     justify-content: center;
 }
 
+.income-wrapper {
+    /* border: 2px solid red; */
+    padding: 20px;
+}
+
+.income-chart {
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.income-transactions {
+    /* border: 2px solid white; */
+    /* padding: 10px; */
+}
+
+.transactions-title {
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.transactions-cards-wrapper {
+    /* border: 2px solid white; */
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    overflow: scroll;
+}
+
+.transaction-cards {
+    /* border: 2px solid red; */
+    border-radius: 6px;
+    background-color: #3C4973;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
 @media screen and (min-width: 940px) {
     .van-detail {
         flex-direction: row;
